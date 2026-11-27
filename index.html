@@ -27,6 +27,21 @@
       center: new naver.maps.LatLng(37.5065, 126.9890),
       zoom: 15
     });
+
+    // 타깃 구역 (반포 권역, 빨간 선 범위)
+    var areaPath = [[37.504174,126.980396],[37.502403,126.981125],[37.500258,126.985073],[37.498386,126.987219],[37.498045,126.992841],[37.498828,126.995158],[37.500292,126.998978],[37.502233,127.002797],[37.509314,126.998634]]
+      .map(function (p) { return new naver.maps.LatLng(p[0], p[1]); });
+
+    var area = new naver.maps.Polygon({
+      map: map,
+      paths: [areaPath],
+      strokeColor: '#e11d48',
+      strokeWeight: 3,
+      fillColor: '#e11d48',
+      fillOpacity: 0.12
+    });
+
+    map.fitBounds(area.getBounds());
     }
   </script>
 </body>
